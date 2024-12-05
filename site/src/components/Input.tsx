@@ -21,16 +21,16 @@ type InputProps = {
 const Input: React.FC<InputProps> = ({
   value,
   onChange,
-  type,
+  // type,
   label,
   placeholder,
   className,
   children,
   isSuccess,
   onBlur,
-  min,
+  // min,
   max,
-  _ref
+  // _ref
 }) => (
   <div className={`Input ${className}`}>
     {label &&

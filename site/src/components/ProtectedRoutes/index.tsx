@@ -7,12 +7,7 @@ import Layout from '../Layout'
 import Redirect from '../Redirect'
 
 
-export type ProtectedRoutesProps = {
-  contentRef: React.RefObject<HTMLDivElement>
-}
-
-
-const ProtectedRoutes: React.FC<ProtectedRoutesProps> = () => {
+const ProtectedRoutes: React.FC = () => {
   const router = useMemo(
     () => createHashRouter(
       mapRoutes(routes)
