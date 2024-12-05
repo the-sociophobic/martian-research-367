@@ -1,0 +1,138 @@
+@import './vars.sass'
+@import './fonts.sass'
+@import './modificators.sass'
+
+
+$button-height: 30px
+.Button
+  cursor: pointer
+  display: block
+  outline: none
+  border: none
+  background-color: rgba(0, 0, 0, 0)
+  &--disabled
+    opacity: .5
+    cursor: not-allowed
+  padding: 0 10px
+  height: $button-height
+  line-height: $button-height
+  color: $main-text
+  @media (hover: hover) and (pointer: fine)
+    &:hover
+      opacity: .4
+  &--gray
+    background-color: $main-gray
+  &--hoverable:hover
+    @media (hover: hover) and (pointer: fine)
+      background-color: $main-gray
+  &--black
+    color: $main-background
+    background-color: $main-text
+  &--transparent
+    color: $main-background
+    background-color: rgba(0, 0, 0, 0)
+  &--medium
+    font-size: 30px
+    padding: 0 15px
+    height: $button-height * 2
+    line-height: $button-height * 2
+
+.Link
+  &--disabled
+    opacity: .5
+    cursor: not-allowed
+
+  
+.Input,
+.TextArea
+  width: 100%
+  position: relative
+  margin-top: 25px
+  margin-bottom: 55px
+  &__label
+    @include font-params(17, 23)
+    @extend .mb-3
+  &__input
+    width: 100%
+    background-color: $main-background
+    border-radius: 0
+    padding: 0 5px
+    color: $main-text
+    line-height: $button-height
+    outline: none
+    border: 0
+    box-shadow: inset 0px 0px 0px 1px $main-text
+    position: relative
+    // Remove arrows
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button
+      -webkit-appearance: none
+      margin: 0
+    /* Firefox */
+    &[type=number]
+      -moz-appearance: textfield
+    &--max
+      padding-right: 170px
+  &__max
+    cursor: pointer
+    max-width: 200px
+    text-align: right
+    line-height: 2
+    padding: 8px 15px 8px 10px
+    position: absolute
+    top: 0
+    right: 0
+    &__text,
+    &__number
+      display: inline-block
+    &__text
+      margin-right: 10px
+      color: $green-member
+    &__number
+      color: $secondary-text
+  &__children
+    position: absolute
+    z-index: 100
+    left: 0
+    top: 100%
+    width: 100%
+  &--accepted
+    input,
+    textarea
+      @extend .accepted-input
+
+.inactive-input
+  transition: border-color .35s, box-shadow .35s
+  border: .5px solid $gray
+.focused-input
+  transition: border-color .35s, box-shadow .35s
+  border: .5px solid $main-text
+.accepted-input
+  transition: border-color .35s, box-shadow .35s
+  border: .5px solid $green-button-border !important
+  box-shadow: 0 0 10px 0 #01FE0180
+
+
+.Answers
+  background-color: black
+  width: 100%
+  height: 100%
+  .Answer
+    padding: 8px 15px
+    margin: 15px
+    border-radius: 20px
+    background: linear-gradient(0deg, #a472bd 0%, #706cad 100%)
+    color: #fffeff
+    animation: appear 2s ease-in-out
+    animation-fill-mode: forwards
+    animation-iteration-count: 1
+    opacity: 0
+    @keyframes appear
+      0%
+        opacity: 0
+        transform: scale(.85) translateY(25px)
+      70%
+        transform: scale(1) translateY(0)
+      100%
+        opacity: 1
