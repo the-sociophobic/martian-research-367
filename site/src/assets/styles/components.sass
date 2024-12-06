@@ -114,7 +114,7 @@ $button-height: 30px
   box-shadow: 0 0 10px 0 #01FE0180
 
 
-.Answers
+.AnswersA
   background-color: black
   width: 100%
   height: 100%
@@ -136,3 +136,40 @@ $button-height: 30px
         transform: scale(1) translateY(0)
       100%
         opacity: 1
+
+.AnswersB
+  background-color: black
+  width: 100%
+  height: 100%
+  *
+    color: white
+    font-size: 25px
+    line-height: 30px
+  .Answer
+    position: absolute
+    top: 0
+    left: 0
+    // opacity: 0
+    font-weight: 800
+    &--appear
+      animation: appear .5s ease-in-out
+      animation-fill-mode: forwards
+      animation-iteration-count: 1
+      @keyframes appear
+        0%
+          opacity: 0
+          transform: translateY(-25px)
+        100%
+          transform: translateY(0)
+          opacity: 1
+    &--disappear
+      animation: disappear .5s ease-in-out
+      animation-fill-mode: forwards
+      animation-iteration-count: 1
+      @keyframes disappear
+        0%
+          opacity: 1
+          transform: translateY(0)
+        100%
+          transform: translateY(25px)
+          opacity: 0

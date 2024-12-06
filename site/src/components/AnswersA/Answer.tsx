@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect } from 'react'
+import { FC, ReactNode } from 'react'
 
 
 export type AnswerProps = {
@@ -13,8 +13,6 @@ const Answer: FC<AnswerProps> = ({
   animationDelay,
   offset
 }) => {
-  useEffect
-
   return (
     <div
       className={`Answer`}
