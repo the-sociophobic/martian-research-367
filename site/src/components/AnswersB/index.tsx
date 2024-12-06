@@ -1,9 +1,10 @@
-import { FC, useCallback, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 
 import { useAnswerNumber } from '../../hooks/useAnswers'
 import useParams from '../../hooks/useParams'
 import Answer from './Answer'
 import questions from '../../utils/questions'
+import isProd from '../../utils/isProd'
 
 
 const AnswersB: FC = () => {
@@ -18,7 +19,7 @@ const AnswersB: FC = () => {
   useEffect(() => {
     intervalRef.current = setInterval(
       () => setAnswerVersion((answerVersion + 1) % answers.length)
-      , 5000
+      , isProd() ? 5000 : 955
     )
 
     return () => clearInterval(intervalRef.current)
@@ -26,7 +27,7 @@ const AnswersB: FC = () => {
 
   return (
     <div className='AnswersB pt-5 ps-3'>
-      <div className='mt-5 ms-5 d-flex flex-row align-items-start'>
+      <div className='answers-container d-flex flex-row align-items-start'>
         <div className='me-2'>
           {currentQuestion}
         </div>
