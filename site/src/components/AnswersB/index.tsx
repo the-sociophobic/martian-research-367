@@ -27,8 +27,11 @@ const AnswersB: FC = () => {
 
   return (
     <div className='AnswersB pt-5 ps-3'>
-      <div className='answers-container d-flex flex-row align-items-start'>
-        <div className='me-2'>
+      <div
+        key={currentAnswerNumber}
+        className='answers-container d-flex flex-row align-items-start'
+      >
+        <div className='answers-container__question me-2'>
           {currentQuestion}
         </div>
         <div className='flex-grow-1 position-relative'>
@@ -37,7 +40,7 @@ const AnswersB: FC = () => {
               key={`${currentAnswerNumber}-${answerIndex}`}
               show={answerVersion === answerIndex}
             >
-              {answer}
+              {answer.toLowerCase()}
             </Answer>
           )}
         </div>
