@@ -9,7 +9,7 @@ import isProd from '../../utils/isProd'
 
 const AnswersB: FC = () => {
   const { paramsState } = useParams()
-  const currentAnswerNumber = parseInt(Object.keys(paramsState)[0] || '1') || 1
+  const currentAnswerNumber = ((parseInt(Object.keys(paramsState)[0] || '1')) || 1) - 1
   const answers = useAnswerNumber(currentAnswerNumber)
   const currentQuestion = (questions[currentAnswerNumber] || '').replace('?', ':')
 
